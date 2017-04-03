@@ -31,7 +31,6 @@ public class Node1 {
                 Socket socket = new Socket(hostName, portNumber);
                 BufferedReader in = new BufferedReader(
                         new InputStreamReader(socket.getInputStream()));
-//                Scanner sc = new Scanner(System.in);
                 PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
         ) {
             //get from transaction manager
@@ -62,11 +61,9 @@ public class Node1 {
                         closeConnectionToDB();
                 }
 
-//                toTM = sc.next();
                 //send to server
                 out.println(toTM);
             }
-
         } catch (UnknownHostException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -74,10 +71,14 @@ public class Node1 {
         }
     }
 
+    /**
+     * starts the connection
+     * creates a db if no is available
+     */
     public String connectToDB() {
         // SQLite connection string
-        String url = "jdbc:sqlite:ssNode1.db";
-        String s = null;
+        String url = "jdbc:sqlite:kocsis_stein.db";
+        String s = "no";
         try {
             con = DriverManager.getConnection(url);
             // set auto-commit mode to false
@@ -86,11 +87,13 @@ public class Node1 {
             s = "yes";
         } catch (SQLException e) {
             System.out.println(e.getMessage());
-            s = "no";
         }
         return s;
     }
 
+    /**
+     * closes the current connection to the db
+     */
     public void closeConnectionToDB() {
         try {
             con.close();
@@ -99,6 +102,10 @@ public class Node1 {
         }
     }
 
+    /**
+     * performs a rollback
+     * then closes the connection
+     */
     public void rollback() {
         try {
             con.rollback();
@@ -108,6 +115,11 @@ public class Node1 {
         closeConnectionToDB();
     }
 
+    /**
+     * should be called to execute an insert command
+     * @param sql command to execute
+     * @return ack or nck
+     */
     public String doInsert (String sql) {
         String result = null;
         Statement stmt = null;
@@ -115,15 +127,14 @@ public class Node1 {
             stmt = con.createStatement();
 //            String sql = "INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY) " +
 //                    "VALUES (1, 'Paul', 32, 'California', 20000.00 );";
-
             int rowAffected = stmt.executeUpdate(sql);
-
             // commit work
             con.commit();
 
             result = "ack";
             if (rowAffected != 1) {
                 result = "nck";
+                System.out.println("insert error: no changes");
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
