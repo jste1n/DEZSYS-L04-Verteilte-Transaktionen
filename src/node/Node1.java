@@ -7,7 +7,10 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.UnknownHostException;
 import java.sql.*;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Scanner;
+import java.util.logging.*;
 
 /**
  * Created by Jaymes Barker on 24/03/2017.
@@ -17,10 +20,35 @@ public class Node1 {
     private String hostName = "localhost";
     private int portNumber = 4444;
     private int dbServer = 1;
+    private static final Logger LOGGER = Logger.getLogger(Node1.class.getName());
 
     public Node1() {
         System.out.println("db server nr "+ this.dbServer);
         this.con = null;
+        System.out.println("work dir " + System.getProperty("user.dir"));
+        Handler fileHandler = null;
+        Formatter simpleFormatter = null;
+
+        try {
+            // Creating FileHandler
+            fileHandler = new FileHandler("./nodeStation"+dbServer+".log", true);
+            // Creating SimpleFormatter
+            simpleFormatter = new SimpleFormatter();
+            // Assigning handler to logger
+            LOGGER.addHandler(fileHandler);
+            // Setting formatter to the handler
+            fileHandler.setFormatter(simpleFormatter);
+            // Setting Level to ALL
+//            fileHandler.setLevel(Level.ALL);
+            LOGGER.setLevel(Level.ALL);
+            LOGGER.severe("Node "+dbServer+" started -- " + new SimpleDateFormat("yyyy.MM.dd_HH:mm:ss").format(Calendar.getInstance().getTime()));
+        } catch (IOException e) {
+            System.err.println("Error is " + e.getMessage());
+            e.printStackTrace();
+        } catch (NumberFormatException e) {
+            System.err.println("Error is " + e.getMessage());
+            e.printStackTrace();
+        }
     }
 
     public static void main(String args[]) {
@@ -44,6 +72,7 @@ public class Node1 {
                 //get from server
                 fromTM = in.readLine();
                 System.out.println("request from TM: "+fromTM);
+                log(fromTM);
                 fromTM = fromTM.toLowerCase();
 
 
@@ -68,12 +97,23 @@ public class Node1 {
                 }
                 //send to server
 
+                log(toTM);
             }
         } catch (UnknownHostException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    /**
+     * Writes the msg in the log file as finest
+     *
+     * @param s1 msg to write in log file
+     */
+    //synchronized
+    public void log(String s1) {
+        LOGGER.finest(s1);
     }
 
     /**
