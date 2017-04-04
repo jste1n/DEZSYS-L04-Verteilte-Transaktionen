@@ -40,19 +40,23 @@ public class Node1 {
             //send to transaction manager
             String toTM = null;
             while (true) {
+                System.out.println("waiting for TM request");
                 //get from server
                 fromTM = in.readLine();
+                System.out.println("request from TM: "+fromTM);
                 fromTM = fromTM.toLowerCase();
-                System.out.println(fromTM);
+
 
                 if (fromTM.equals("prepare")) {
                     toTM = connectToDB();
+                    out.println(toTM);
                 } else if (fromTM.startsWith("select")) {
                     // do select
                 } else if (fromTM.startsWith("update")) {
                     // do update
                 } else if (fromTM.startsWith("insert")) {
                     toTM = doInsert(fromTM);
+                    out.println(toTM);
                 } else if (fromTM.startsWith("delete")) {
                     // do delete
                 } else if (fromTM.equals("doabort")) {
@@ -60,11 +64,10 @@ public class Node1 {
                 } else if (fromTM.equals("rollback")) {
                     rollback();
                 } else if (fromTM.equals("done")) {
-                        closeConnectionToDB();
+                    closeConnectionToDB();
                 }
-
                 //send to server
-                out.println(toTM);
+
             }
         } catch (UnknownHostException e) {
             e.printStackTrace();
@@ -79,7 +82,7 @@ public class Node1 {
      */
     public String connectToDB() {
         // SQLite connection string
-        String url = "jdbc:sqlite:kocsis_stein"+dbServer+".db";
+        String url = "jdbc:sqlite:kocsis_stein_"+dbServer+".db";
         String s = "no";
         try {
             con = DriverManager.getConnection(url);
@@ -128,7 +131,7 @@ public class Node1 {
         try {
             stmt = con.createStatement();
             sql = "INSERT INTO schueler (ID,NAME,AGE,class) " +
-                    "VALUES (1, 'aaa', 19, '5chit' );";
+                    "VALUES (8, 'aaa', 19, '5chit' );";
             int rowAffected = stmt.executeUpdate(sql);
             // commit work
             con.commit();
