@@ -90,6 +90,7 @@ public class TransaktionsManager{
            clientNotificationText = "TransactionManager request";
            for(Map.Entry<Integer,String> stationRequest:this.stationRequests.entrySet()){
                this.stationHandlers.get(stationRequest.getKey()).sendRequest(stationRequest.getValue());
+               log("Transaction manager: #"+stationRequest.getKey() + " request:"+ stationRequest.getValue());
                clientNotificationText += " , "+stationRequest.getValue();
            }
            this.clientHandler.notifyClient(clientNotificationText);
