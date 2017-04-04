@@ -1,6 +1,7 @@
 package protocol;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Created by pkocsis on 31.03.17.
@@ -18,12 +19,13 @@ public class StationProtocol {
         this.state = PREPARE;
     }
 
-    public ArrayList<String> processInput(ArrayList<String> responses) {
+    public HashMap<Integer,String> processInput(HashMap<Integer,String> responses) {
 
         if(state == PREPARE){
-            ArrayList<String> requests = new ArrayList<>();
+            HashMap<Integer,String> requests = new HashMap<>();
             boolean failed = false;
-            for(String response:responses){
+            for(int i = 0;i<responses.size();i++){
+                String response = responses.get(i);
                 response = response.toLowerCase();
                 if(response.equals("no")){
                     failed = true;
@@ -31,38 +33,40 @@ public class StationProtocol {
             }
             if(!failed){
                 for(int i = 0;i<responses.size();i++){
-                    requests.add(i,this.sqlCommand);
+                    requests.put(i,this.sqlCommand);
                 }
                 this.state=COMMIT;
                 return requests;
             }else {
                 for(int i = 0;i<responses.size();i++){
-                    requests.add(i,"doabort");
+                    requests.put(i,"doabort");
                 }
                 return requests;
             }
         }
         if(this.state == COMMIT){
-            ArrayList<String> requests = new ArrayList<>();
+            HashMap<Integer,String> requests = new HashMap<>();
             boolean failed = false;
-            for(String response:responses){
+            for(int i = 0;i<responses.size();i++){
+                String response = responses.get(i);
+                response = response.toLowerCase();
                 if(response.equals("nck")){
                     failed = true;
                 }
             }
             if(!failed){
                 for(int i = 0;i<responses.size();i++){
-                    requests.add(i,"done");
+                    requests.put(i,"done");
                 }
                 this.state=COMMIT;
                 return requests;
             }else {
                 for(int i = 0;i<responses.size();i++){
                     if(responses.get(i).equals("ack")){
-                        requests.add(i,"rollback");
+                        requests.put(i,"rollback");
                     } else {
                         if(responses.get(i).equals("nck")){
-                            requests.add(i,"done");
+                            requests.put(i,"done");
                         }
                     }
                 }

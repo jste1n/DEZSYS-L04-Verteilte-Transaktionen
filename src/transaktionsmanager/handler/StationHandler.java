@@ -33,21 +33,24 @@ public class StationHandler extends Thread{
                 PrintWriter out = new PrintWriter(stationSocket.getOutputStream(), true);
                 BufferedReader in = new BufferedReader(new InputStreamReader(stationSocket.getInputStream()))
         ) {
-            synchronized(this) {
-                String inputLine;
+            String inputLine;
+            synchronized(this){
                 this.wait();
                 String send = this.transaktionsManager.getStationRequest(this.id);
                 out.println(send);
                 System.out.println("sent to server: " + send);
-                while(true) {
-                    inputLine = in.readLine();
-                    this.transaktionsManager.addStationResponse(inputLine, id);
-                    System.out.println("Stationhandler is waiting on request id:"+this.id+" response "+inputLine);
-                    this.wait();
-                    String response = this.transaktionsManager.getStationRequest(this.id);
-                    System.out.println("response "+response);
-                    out.println(response);
+            }
+            while(true) {
+                inputLine = in.readLine();
+                this.transaktionsManager.addStationResponse(inputLine, id);
+                System.out.println("Stationhandler is waiting on request id:"+this.id+" response "+inputLine);
+                while(!this.transaktionsManager.isStationResponseEvaluated()){
+                    this.transaktionsManager.updateEvaluationStatus();
+                    Thread.sleep(1000);
                 }
+                String response = this.transaktionsManager.getStationRequest(this.id);
+                System.out.println("request:  "+response);
+                out.println(response);
             }
         } catch(IOException e) {
             e.printStackTrace();

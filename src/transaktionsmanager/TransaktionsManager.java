@@ -11,6 +11,8 @@ import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -18,16 +20,23 @@ import java.util.List;
  */
 public class TransaktionsManager {
 
-    private int stationCount = -1;
+    private int stationCount = 0;
     private StationProtocol stationProtocol;
     private ClientHandler clientHandler;
     private ArrayList<StationHandler> stationHandlers = new ArrayList<>();
-    private ArrayList<String> stationResponse = new ArrayList<>();
-    private ArrayList<String> stationRequest = new ArrayList<>();
+    //private ArrayList<String> stationResponse = new ArrayList<>();
+    private HashMap<Integer, String> stationRequest = new HashMap<>();
+
+    private HashMap<Integer, String> stationResponse = new HashMap<>();
+    private boolean isStationResponseEvaluated = false;
 
     public TransaktionsManager() {
         this.clientHandler= new ClientHandler(this);
         this.clientHandler.start();
+    }
+
+    public boolean isStationResponseEvaluated() {
+        return isStationResponseEvaluated;
     }
 
     /**
@@ -46,24 +55,20 @@ public class TransaktionsManager {
      * @param stationHandlerId
      */
     public synchronized void addStationResponse(String response, int stationHandlerId){
-        System.out.println("Station responded "+response);
-        this.stationResponse.add(stationHandlerId,response);
+        this.stationResponse.put(stationHandlerId,response);
+        this.isStationResponseEvaluated=false;
+    }
+
+    public synchronized void updateEvaluationStatus(){
         if(stationCount == stationResponse.size()){
             this.stationRequest=this.stationProtocol.processInput(this.stationResponse);
             String clientNotificationText="Station Responses ";
             for(int i =0; i<this.stationResponse.size();i++){
                 clientNotificationText += ", "+this.stationResponse.get(i);
-                StationHandler stationHandler = this.stationHandlers.get(i);
-                System.out.println("vor sync");
-                synchronized(stationHandler){
-                    System.out.println("in sync");
-                    stationHandler.notify();
-                    System.out.println("after sync");
-                }
-
             }
             this.clientHandler.notifyClient(clientNotificationText);
-            //this.stationResponse.clear();
+            this.stationResponse.clear();
+            this.isStationResponseEvaluated = true;
         }
     }
 
@@ -74,7 +79,7 @@ public class TransaktionsManager {
     public void startTransaction(String sql){
         System.out.println("Transaction started");
         for(StationHandler stationHandler:this.stationHandlers){
-            this.stationRequest.add(stationHandler.getStationId(),"prepare");
+            this.stationRequest.put(stationHandler.getStationId(),"prepare");
             synchronized(stationHandler){
                 stationHandler.notify();
             }
@@ -91,10 +96,10 @@ public class TransaktionsManager {
         try (ServerSocket serverSocket = new ServerSocket(port)) {
             while (listening) {
                 System.out.println("listening for stations");
-                this.stationCount++;
                 StationHandler tmp_station = new StationHandler(serverSocket.accept(),this,this.stationCount);
                 this.stationHandlers.add(this.stationCount,tmp_station);
                 tmp_station.start();
+                this.stationCount++;
             }
         } catch (IOException e) {
             System.err.println("Could not listen on port " + port);
