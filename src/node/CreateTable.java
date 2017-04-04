@@ -19,7 +19,7 @@ public class CreateTable {
      */
     public void connectToDB() {
         // SQLite connection string
-        String url = "jdbc:sqlite:kocsis_stein.db";
+        String url = "jdbc:sqlite:kocsis_stein_3.db";
         try {
             con = DriverManager.getConnection(url);
             // set auto-commit mode to false

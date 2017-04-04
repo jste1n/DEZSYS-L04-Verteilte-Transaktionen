@@ -17,8 +17,8 @@ import java.util.Scanner;
  * Created by steinwender on 26.11.2016.
  */
 public class Client {
-    private String hostName;
-    private int portNumber;
+    private String hostName = "localhost";
+    private int portNumber = 444;
 
     /**
      * constructor
