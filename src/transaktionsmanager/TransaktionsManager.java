@@ -28,9 +28,6 @@ public class TransaktionsManager{
     private HashMap<Integer, String> stationResponses = new HashMap<>();
 
     public TransaktionsManager(int stationPort, int clientPort) {
-        this.clientHandler= new ClientHandler(this,clientPort);
-        this.clientHandler.start();
-        this.listenForStations(stationPort);
         Handler fileHandler;
         Formatter simpleFormatter;
         try {
@@ -52,6 +49,9 @@ public class TransaktionsManager{
             System.err.println("Error is " + e.getMessage());
             e.printStackTrace();
         }
+        this.clientHandler= new ClientHandler(this,clientPort);
+        this.clientHandler.start();
+        this.listenForStations(stationPort);
     }
 
     /**

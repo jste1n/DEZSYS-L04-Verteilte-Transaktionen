@@ -23,7 +23,6 @@ public class Node1 {
     private static final Logger LOGGER = Logger.getLogger(Node1.class.getName());
 
     public Node1() {
-        System.out.println("db server nr "+ this.dbServer);
         this.con = null;
         //System.out.println("work dir " + System.getProperty("user.dir"));
         Handler fileHandler = null;
@@ -52,7 +51,6 @@ public class Node1 {
     }
 
     public static void main(String args[]) {
-        System.out.println("INSERT INTO schueler (ID,NAME,AGE,class) VALUES (1, 'Kocsis Patrick', 20, '5BHIT' );");
         Node1 n1 = new Node1();
         n1.connectToManager();
     }

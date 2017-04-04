@@ -231,3 +231,59 @@ Apr 04, 2017 6:48:04 PM node.Node1 log
 AM FEINSTEN: Transaction manager: rollback
 Apr 04, 2017 6:49:37 PM node.Node1 log
 AM FEINSTEN: Transaction manager: null
+Apr 04, 2017 7:26:56 PM node.Node1 <init>
+SEVERE: Node 3 started -- 2017.04.04_19:26:56
+Apr 04, 2017 7:28:33 PM node.Node1 log
+FINEST: Transaction manager: prepare
+Apr 04, 2017 7:28:34 PM node.Node1 log
+FINEST: Station: yes
+Apr 04, 2017 7:28:34 PM node.Node1 log
+FINEST: Transaction manager: INSERT INTO schueler (ID,NAME,AGE,class) VALUES (40, 'Kocsis Patrick', 20, '5BHIT' );
+Apr 04, 2017 7:28:34 PM node.Node1 log
+FINEST: Station: ack
+Apr 04, 2017 7:28:34 PM node.Node1 log
+FINEST: Transaction manager: done
+Apr 04, 2017 7:32:51 PM node.Node1 log
+FINEST: Transaction manager: prepare
+Apr 04, 2017 7:32:51 PM node.Node1 log
+FINEST: Station: yes
+Apr 04, 2017 7:32:51 PM node.Node1 log
+FINEST: Transaction manager: INSERT INTO schueler (ID,NAME,AGE,class) VALUES (41, 'Kocsis Patrick', 20, '5BHIT' );
+Apr 04, 2017 7:32:51 PM node.Node1 log
+FINEST: Station: ack
+Apr 04, 2017 7:32:51 PM node.Node1 log
+FINEST: Transaction manager: done
+Apr 04, 2017 7:32:58 PM node.Node1 log
+FINEST: Transaction manager: prepare
+Apr 04, 2017 7:32:58 PM node.Node1 log
+FINEST: Station: yes
+Apr 04, 2017 7:32:58 PM node.Node1 log
+FINEST: Transaction manager: INSERT INTO schuelr (ID,NAME,AGE,class) VALUES (40, 'Kocsis Patrick', 20, '5BHIT' );
+Apr 04, 2017 7:32:58 PM node.Node1 log
+FINEST: Station: nck
+Apr 04, 2017 7:32:58 PM node.Node1 log
+FINEST: Transaction manager: done
+Apr 04, 2017 7:38:30 PM node.Node1 <init>
+SEVERE: Node 3 started -- 2017.04.04_19:38:30
+Apr 04, 2017 7:39:36 PM node.Node1 log
+FINEST: Transaction manager: prepare
+Apr 04, 2017 7:39:37 PM node.Node1 log
+FINEST: Station: yes
+Apr 04, 2017 7:39:37 PM node.Node1 log
+FINEST: Transaction manager: INSERT INTO fakenews (ID,NAME) VALUES (1, 'Kocsis Patrick' );
+Apr 04, 2017 7:39:37 PM node.Node1 log
+FINEST: Station: ack
+Apr 04, 2017 7:39:37 PM node.Node1 log
+FINEST: Transaction manager: rollback
+Apr 04, 2017 7:43:10 PM node.Node1 <init>
+SEVERE: Node 3 started -- 2017.04.04_19:43:10
+Apr 04, 2017 7:43:53 PM node.Node1 log
+FINEST: Transaction manager: prepare
+Apr 04, 2017 7:43:54 PM node.Node1 log
+FINEST: Station: yes
+Apr 04, 2017 7:43:54 PM node.Node1 log
+FINEST: Transaction manager: INSERT INTO schueler (ID,NAME,AGE,class) VALUES (42, 'Kocsis Patrick', 20, '5BHIT' );
+Apr 04, 2017 7:43:54 PM node.Node1 log
+FINEST: Station: ack
+Apr 04, 2017 7:43:54 PM node.Node1 log
+FINEST: Transaction manager: rollback

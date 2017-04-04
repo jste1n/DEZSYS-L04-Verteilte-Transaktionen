@@ -24,6 +24,9 @@ public class Client {
      * constructor
      */
     public Client() {
+        System.out.println("examples: \n" +
+                "INSERT INTO schueler (ID,NAME,AGE,class) VALUES (1, 'Kocsis Patrick', 20, '5BHIT' );\n" +
+                "INSERT INTO fakenews (ID,NAME) VALUES (1, 'Kocsis Patrick' );");
     }
 
     /**
