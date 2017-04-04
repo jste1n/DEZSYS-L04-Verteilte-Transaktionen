@@ -1,5 +1,6 @@
 package transaktionsmanager;
 
+import node.Node1;
 import protocol.StationProtocol;
 import transaktionsmanager.handler.ClientHandler;
 import transaktionsmanager.handler.StationHandler;
@@ -10,10 +11,10 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
+import java.text.SimpleDateFormat;
+import java.util.*;
+import java.util.logging.*;
+import java.util.logging.Formatter;
 
 /**
  * Created by pkocsis on 31.03.17.
@@ -29,14 +30,48 @@ public class TransaktionsManager {
 
     private HashMap<Integer, String> stationResponse = new HashMap<>();
     private boolean isStationResponseEvaluated = false;
+    private static final Logger LOGGER = Logger.getLogger(TransaktionsManager.class.getName());
 
     public TransaktionsManager() {
         this.clientHandler= new ClientHandler(this);
         this.clientHandler.start();
+
+        Handler fileHandler = null;
+        Formatter simpleFormatter = null;
+        try {
+            // Creating FileHandler
+            fileHandler = new FileHandler("./TransaktionsManager.log", true);
+            // Creating SimpleFormatter
+            simpleFormatter = new SimpleFormatter();
+            // Assigning handler to logger
+            LOGGER.addHandler(fileHandler);
+            // Setting formatter to the handler
+            fileHandler.setFormatter(simpleFormatter);
+            // Setting Level to ALL
+//            fileHandler.setLevel(Level.ALL);
+            LOGGER.setLevel(Level.ALL);
+            LOGGER.severe("TransaktionsManager started -- " + new SimpleDateFormat("yyyy.MM.dd_HH:mm:ss").format(Calendar.getInstance().getTime()));
+        } catch (IOException e) {
+            System.err.println("Error is " + e.getMessage());
+            e.printStackTrace();
+        } catch (NumberFormatException e) {
+            System.err.println("Error is " + e.getMessage());
+            e.printStackTrace();
+        }
     }
 
     public boolean isStationResponseEvaluated() {
         return isStationResponseEvaluated;
+    }
+
+    /**
+     * Writes the msg in the log file as finest
+     *
+     * @param s1 msg to write in log file
+     */
+    //synchronized
+    public void log(String s1) {
+        LOGGER.finest(s1);
     }
 
     /**
@@ -45,7 +80,9 @@ public class TransaktionsManager {
      * @return
      */
     public synchronized String getStationRequest(int stationId){
-        return this.stationRequest.get(stationId);
+        String text = this.stationRequest.get(stationId);
+        log("Transaction manager: #"+stationId + " msg:"+text);
+        return text;
     }
 
     /**
@@ -57,6 +94,7 @@ public class TransaktionsManager {
     public synchronized void addStationResponse(String response, int stationHandlerId){
         this.stationResponse.put(stationHandlerId,response);
         this.isStationResponseEvaluated=false;
+        log("Station: #"+stationHandlerId + " msg:" +response);
     }
 
     public synchronized void updateEvaluationStatus(){

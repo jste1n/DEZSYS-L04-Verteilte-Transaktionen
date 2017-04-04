@@ -1,0 +1,173 @@
+Apr 04, 2017 1:17:23 PM node.Node1 <init>
+SEVERE: Node 3 started -- 2017.04.04_13:17:23
+Apr 04, 2017 1:17:34 PM node.Node1 log
+FINEST: prepare
+Apr 04, 2017 1:17:34 PM node.Node1 log
+FINEST: yes
+Apr 04, 2017 1:17:35 PM node.Node1 log
+FINEST: insert
+Apr 04, 2017 1:17:35 PM node.Node1 log
+FINEST: ack
+Apr 04, 2017 1:17:36 PM node.Node1 log
+FINEST: done
+Apr 04, 2017 1:17:36 PM node.Node1 log
+FINEST: ack
+Apr 04, 2017 1:24:57 PM node.Node1 <init>
+SEVERE: 
+Node 3 started -- 2017.04.04_13:24:57
+Apr 04, 2017 1:25:42 PM node.Node1 log
+FINEST: Transaction manager: prepare
+Apr 04, 2017 1:25:42 PM node.Node1 log
+FINEST: Station: yes
+Apr 04, 2017 1:25:43 PM node.Node1 log
+FINEST: Transaction manager: INSERT
+Apr 04, 2017 1:25:43 PM node.Node1 log
+FINEST: Station: nck
+Apr 04, 2017 1:25:44 PM node.Node1 log
+FINEST: Transaction manager: prepare
+Apr 04, 2017 1:25:44 PM node.Node1 log
+FINEST: Station: yes
+Apr 04, 2017 1:25:45 PM node.Node1 log
+FINEST: Transaction manager: INTO
+Apr 04, 2017 1:25:45 PM node.Node1 log
+FINEST: Station: yes
+Apr 04, 2017 1:31:21 PM node.Node1 <init>
+SEVERE: Node 3 started -- 2017.04.04_13:31:21
+Apr 04, 2017 1:32:12 PM node.Node1 log
+FINEST: Transaction manager: prepare
+Apr 04, 2017 1:32:12 PM node.Node1 log
+FINEST: Station: yes
+Apr 04, 2017 1:32:13 PM node.Node1 log
+FINEST: Transaction manager: INSERT
+Apr 04, 2017 1:32:13 PM node.Node1 log
+FINEST: Station: nck
+Apr 04, 2017 1:37:27 PM node.Node1 <init>
+SEVERE: Node 3 started -- 2017.04.04_13:37:27
+Apr 04, 2017 1:37:35 PM node.Node1 log
+FINEST: Transaction manager: prepare
+Apr 04, 2017 1:37:36 PM node.Node1 log
+FINEST: Station: yes
+Apr 04, 2017 1:39:24 PM node.Node1 <init>
+SEVERE: Node 3 started -- 2017.04.04_13:39:24
+Apr 04, 2017 1:39:54 PM node.Node1 log
+FINEST: Transaction manager: prepare
+Apr 04, 2017 1:39:55 PM node.Node1 log
+FINEST: Station: yes
+Apr 04, 2017 1:45:43 PM node.Node1 <init>
+SEVERE: Node 3 started -- 2017.04.04_13:45:43
+Apr 04, 2017 1:46:13 PM node.Node1 log
+FINEST: Transaction manager: prepare
+Apr 04, 2017 1:46:14 PM node.Node1 log
+FINEST: Station: yes
+Apr 04, 2017 1:46:15 PM node.Node1 log
+FINEST: Transaction manager: INSERT INTO schueler (ID,NAME,AGE,class) VALUES (1, 'Kocsis Patrick', 20, '5BHIT' );
+Apr 04, 2017 1:46:15 PM node.Node1 log
+FINEST: Station: ack
+Apr 04, 2017 1:46:16 PM node.Node1 log
+FINEST: Transaction manager: done
+Apr 04, 2017 1:46:16 PM node.Node1 log
+FINEST: Station: ack
+Apr 04, 2017 1:53:25 PM node.Node1 <init>
+SEVERE: Node 3 started -- 2017.04.04_13:53:25
+Apr 04, 2017 1:53:32 PM node.Node1 log
+FINEST: Transaction manager: prepare
+Apr 04, 2017 1:53:32 PM node.Node1 log
+FINEST: Station: yes
+Apr 04, 2017 1:53:33 PM node.Node1 log
+FINEST: Transaction manager: INSERT INTO schueler (ID,NAME,AGE,class) VALUES (2, 'steinwender Jan-Philipp', 19, '5bhit' );
+Apr 04, 2017 1:53:33 PM node.Node1 log
+FINEST: Station: ack
+Apr 04, 2017 1:53:34 PM node.Node1 log
+FINEST: Transaction manager: rollback
+Apr 04, 2017 2:02:50 PM node.Node1 <init>
+SEVERE: Node 3 started -- 2017.04.04_14:02:50
+Apr 04, 2017 2:03:12 PM node.Node1 log
+FINEST: Transaction manager: prepare
+Apr 04, 2017 2:03:12 PM node.Node1 log
+FINEST: Station: yes
+Apr 04, 2017 2:04:10 PM node.Node1 <init>
+SEVERE: Node 3 started -- 2017.04.04_14:04:10
+Apr 04, 2017 2:04:19 PM node.Node1 log
+FINEST: Transaction manager: prepare
+Apr 04, 2017 2:04:20 PM node.Node1 log
+FINEST: Station: yes
+Apr 04, 2017 2:04:21 PM node.Node1 log
+FINEST: Transaction manager: INSERT INTO schueler (ID,NAME,AGE,class) VALUES (2, 'steinwender Jan-Philipp', 19, '5bhit' );
+Apr 04, 2017 2:04:21 PM node.Node1 log
+FINEST: Station: ack
+Apr 04, 2017 2:04:22 PM node.Node1 log
+FINEST: Transaction manager: rollback
+Apr 04, 2017 2:05:34 PM node.Node1 <init>
+SEVERE: Node 3 started -- 2017.04.04_14:05:34
+Apr 04, 2017 2:05:54 PM node.Node1 log
+FINEST: Transaction manager: prepare
+Apr 04, 2017 2:05:54 PM node.Node1 log
+FINEST: Station: yes
+Apr 04, 2017 2:08:00 PM node.Node1 <init>
+SEVERE: Node 3 started -- 2017.04.04_14:08:00
+Apr 04, 2017 2:08:11 PM node.Node1 log
+FINEST: Transaction manager: prepare
+Apr 04, 2017 2:08:11 PM node.Node1 log
+FINEST: Station: yes
+Apr 04, 2017 2:08:12 PM node.Node1 log
+FINEST: Transaction manager: INSERT INTO schueler 2, 'steinwender Jan-Philipp', 19, '5bhit' ;
+Apr 04, 2017 2:08:12 PM node.Node1 log
+FINEST: Station: nck
+Apr 04, 2017 2:08:13 PM node.Node1 log
+FINEST: Transaction manager: done
+Apr 04, 2017 2:22:17 PM node.Node1 <init>
+SEVERE: Node 3 started -- 2017.04.04_14:22:17
+Apr 04, 2017 2:23:06 PM node.Node1 log
+FINEST: Transaction manager: prepare
+Apr 04, 2017 2:23:06 PM node.Node1 log
+FINEST: Station: yes
+Apr 04, 2017 2:23:07 PM node.Node1 log
+FINEST: Transaction manager: INSERT INTO schueler (ID,NAME,AGE,class) VALUES (3, 'steinwender Jan-Philipp', 19, '5bhit' );
+Apr 04, 2017 2:23:07 PM node.Node1 log
+FINEST: Station: ack
+Apr 04, 2017 2:23:49 PM node.Node1 <init>
+SEVERE: Node 3 started -- 2017.04.04_14:23:49
+Apr 04, 2017 2:24:02 PM node.Node1 log
+FINEST: Transaction manager: prepare
+Apr 04, 2017 2:24:02 PM node.Node1 log
+FINEST: Station: yes
+Apr 04, 2017 2:24:03 PM node.Node1 log
+FINEST: Transaction manager: INSERT INTO schueler (ID,NAME,AGE,class) VALUES (3, 'steinwender Jan-Philipp', 19, '5bhit' );
+Apr 04, 2017 2:24:03 PM node.Node1 log
+FINEST: Station: ack
+Apr 04, 2017 2:26:41 PM node.Node1 <init>
+SEVERE: Node 3 started -- 2017.04.04_14:26:41
+Apr 04, 2017 2:27:10 PM node.Node1 log
+FINEST: Transaction manager: prepare
+Apr 04, 2017 2:27:10 PM node.Node1 log
+FINEST: Station: yes
+Apr 04, 2017 2:27:11 PM node.Node1 log
+FINEST: Transaction manager: INSERT INTO schueler (ID,NAME,AGE,class) VALUES (5, 'steinwender Jan-Philipp', 19, '5bhit' );
+Apr 04, 2017 2:27:11 PM node.Node1 log
+FINEST: Station: ack
+Apr 04, 2017 2:27:12 PM node.Node1 log
+FINEST: Transaction manager: done
+Apr 04, 2017 2:29:36 PM node.Node1 <init>
+SEVERE: Node 3 started -- 2017.04.04_14:29:36
+Apr 04, 2017 2:29:48 PM node.Node1 log
+FINEST: Transaction manager: prepare
+Apr 04, 2017 2:29:48 PM node.Node1 log
+FINEST: Station: yes
+Apr 04, 2017 2:30:05 PM node.Node1 <init>
+SEVERE: Node 3 started -- 2017.04.04_14:30:05
+Apr 04, 2017 2:30:25 PM node.Node1 log
+FINEST: Transaction manager: prepare
+Apr 04, 2017 2:30:25 PM node.Node1 log
+FINEST: Station: yes
+Apr 04, 2017 2:30:59 PM node.Node1 <init>
+SEVERE: Node 3 started -- 2017.04.04_14:30:59
+Apr 04, 2017 2:31:09 PM node.Node1 log
+FINEST: Transaction manager: prepare
+Apr 04, 2017 2:31:10 PM node.Node1 log
+FINEST: Station: yes
+Apr 04, 2017 2:31:11 PM node.Node1 log
+FINEST: Transaction manager: INSERT INTO schueler (ID,NAME,AGE,class) VALUES (8, 'steinwender Jan-Philipp', 19, '5bhit' );
+Apr 04, 2017 2:31:11 PM node.Node1 log
+FINEST: Station: ack
+Apr 04, 2017 2:31:12 PM node.Node1 log
+FINEST: Transaction manager: done

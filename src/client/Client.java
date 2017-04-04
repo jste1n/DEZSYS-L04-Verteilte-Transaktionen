@@ -43,7 +43,7 @@ public class Client {
             String fromServer;
             String input = null;
             while (true) {
-                input = sc.next();
+                input = sc.nextLine();
                 //send to server
                 out.println(input);
 

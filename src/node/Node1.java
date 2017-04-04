@@ -19,13 +19,13 @@ public class Node1 {
     private Connection con;
     private String hostName = "localhost";
     private int portNumber = 4444;
-    private int dbServer = 1;
+    private int dbServer = 3;
     private static final Logger LOGGER = Logger.getLogger(Node1.class.getName());
 
     public Node1() {
         System.out.println("db server nr "+ this.dbServer);
         this.con = null;
-        System.out.println("work dir " + System.getProperty("user.dir"));
+        //System.out.println("work dir " + System.getProperty("user.dir"));
         Handler fileHandler = null;
         Formatter simpleFormatter = null;
 
@@ -52,6 +52,7 @@ public class Node1 {
     }
 
     public static void main(String args[]) {
+        System.out.println("INSERT INTO schueler (ID,NAME,AGE,class) VALUES (1, 'Kocsis Patrick', 20, '5BHIT' );");
         Node1 n1 = new Node1();
         n1.connectToManager();
     }
@@ -67,37 +68,46 @@ public class Node1 {
             String fromTM;
             //send to transaction manager
             String toTM = null;
+            Boolean sendMsg = true;
             while (true) {
-                System.out.println("waiting for TM request");
                 //get from server
                 fromTM = in.readLine();
                 System.out.println("request from TM: "+fromTM);
-                log(fromTM);
+                log("Transaction manager: "+fromTM);
                 fromTM = fromTM.toLowerCase();
 
 
                 if (fromTM.equals("prepare")) {
                     toTM = connectToDB();
-                    out.println(toTM);
+                    sendMsg=true;
                 } else if (fromTM.startsWith("select")) {
                     // do select
+                    sendMsg=true;
                 } else if (fromTM.startsWith("update")) {
                     // do update
+                    sendMsg=true;
                 } else if (fromTM.startsWith("insert")) {
                     toTM = doInsert(fromTM);
-                    out.println(toTM);
+                    sendMsg=true;
                 } else if (fromTM.startsWith("delete")) {
                     // do delete
+                    sendMsg=true;
                 } else if (fromTM.equals("doabort")) {
                     closeConnectionToDB();
+                    sendMsg=false;
                 } else if (fromTM.equals("rollback")) {
                     rollback();
+                    sendMsg=false;
                 } else if (fromTM.equals("done")) {
-                    closeConnectionToDB();
+                    commit();
+                    sendMsg=false;
                 }
-                //send to server
 
-                log(toTM);
+                //send to server
+                if (sendMsg) {
+                    out.println(toTM);
+                    log("Station: "+toTM);
+                }
             }
         } catch (UnknownHostException e) {
             e.printStackTrace();
@@ -142,9 +152,21 @@ public class Node1 {
     public void closeConnectionToDB() {
         try {
             con.close();
+            System.out.println("Connection to DB closed");
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+    }
+
+    public void commit() {
+        // commit work
+        try {
+            con.commit();
+            System.out.println("committed");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        closeConnectionToDB();
     }
 
     /**
@@ -154,10 +176,11 @@ public class Node1 {
     public void rollback() {
         try {
             con.rollback();
+            System.out.println("Did a rollback");
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-        closeConnectionToDB();
+        commit();
     }
 
     /**
@@ -170,16 +193,16 @@ public class Node1 {
         Statement stmt = null;
         try {
             stmt = con.createStatement();
-            sql = "INSERT INTO schueler (ID,NAME,AGE,class) " +
-                    "VALUES (8, 'aaa', 19, '5chit' );";
+//            sql = "INSERT INTO schueler (ID,NAME,AGE,class) " +
+//                    "VALUES (8, 'aaa', 19, '5chit' );";
             int rowAffected = stmt.executeUpdate(sql);
-            // commit work
-            con.commit();
 
             result = "ack";
             if (rowAffected != 1) {
                 result = "nck";
                 System.out.println("insert error: no changes");
+            } else {
+                System.out.println("Records created successfully");
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -193,7 +216,6 @@ public class Node1 {
                 System.out.println(e3.getMessage());
             }
         }
-        System.out.println("Records created successfully");
         return result;
     }
 }

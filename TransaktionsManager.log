@@ -1,0 +1,114 @@
+Apr 04, 2017 2:22:08 PM transaktionsmanager.TransaktionsManager <init>
+SEVERE: TransaktionsManager started -- 2017.04.04_14:22:08
+Apr 04, 2017 2:23:06 PM transaktionsmanager.TransaktionsManager log
+FINEST: Transaction manager: prepare
+Apr 04, 2017 2:23:06 PM transaktionsmanager.TransaktionsManager log
+FINEST: Station: INSERT INTO schueler (ID,NAME,AGE,class) VALUES (3, 'steinwender Jan-Philipp', 19, '5bhit' );
+Apr 04, 2017 2:23:06 PM transaktionsmanager.TransaktionsManager log
+FINEST: Transaction manager: prepare
+Apr 04, 2017 2:23:06 PM transaktionsmanager.TransaktionsManager log
+FINEST: Transaction manager: prepare
+Apr 04, 2017 2:23:07 PM transaktionsmanager.TransaktionsManager log
+FINEST: Transaction manager: INSERT INTO schueler (ID,NAME,AGE,class) VALUES (3, 'steinwender Jan-Philipp', 19, '5bhit' );
+Apr 04, 2017 2:23:32 PM transaktionsmanager.TransaktionsManager <init>
+SEVERE: TransaktionsManager started -- 2017.04.04_14:23:32
+Apr 04, 2017 2:24:02 PM transaktionsmanager.TransaktionsManager log
+FINEST: Station: INSERT INTO schueler (ID,NAME,AGE,class) VALUES (3, 'steinwender Jan-Philipp', 19, '5bhit' );
+Apr 04, 2017 2:24:02 PM transaktionsmanager.TransaktionsManager log
+FINEST: Transaction manager: prepare
+Apr 04, 2017 2:24:02 PM transaktionsmanager.TransaktionsManager log
+FINEST: Transaction manager: prepare
+Apr 04, 2017 2:24:02 PM transaktionsmanager.TransaktionsManager log
+FINEST: Transaction manager: prepare
+Apr 04, 2017 2:24:03 PM transaktionsmanager.TransaktionsManager log
+FINEST: Transaction manager: INSERT INTO schueler (ID,NAME,AGE,class) VALUES (3, 'steinwender Jan-Philipp', 19, '5bhit' );
+Apr 04, 2017 2:26:38 PM transaktionsmanager.TransaktionsManager <init>
+SEVERE: TransaktionsManager started -- 2017.04.04_14:26:38
+Apr 04, 2017 2:27:10 PM transaktionsmanager.TransaktionsManager log
+FINEST: Station: INSERT INTO schueler (ID,NAME,AGE,class) VALUES (5, 'steinwender Jan-Philipp', 19, '5bhit' );
+Apr 04, 2017 2:27:10 PM transaktionsmanager.TransaktionsManager log
+FINEST: Transaction manager: 2 prepare
+Apr 04, 2017 2:27:10 PM transaktionsmanager.TransaktionsManager log
+FINEST: Transaction manager: 1 prepare
+Apr 04, 2017 2:27:10 PM transaktionsmanager.TransaktionsManager log
+FINEST: Transaction manager: 0 prepare
+Apr 04, 2017 2:27:11 PM transaktionsmanager.TransaktionsManager log
+FINEST: Transaction manager: 1 INSERT INTO schueler (ID,NAME,AGE,class) VALUES (5, 'steinwender Jan-Philipp', 19, '5bhit' );
+Apr 04, 2017 2:27:11 PM transaktionsmanager.TransaktionsManager log
+FINEST: Transaction manager: 2 INSERT INTO schueler (ID,NAME,AGE,class) VALUES (5, 'steinwender Jan-Philipp', 19, '5bhit' );
+Apr 04, 2017 2:27:11 PM transaktionsmanager.TransaktionsManager log
+FINEST: Transaction manager: 0 INSERT INTO schueler (ID,NAME,AGE,class) VALUES (5, 'steinwender Jan-Philipp', 19, '5bhit' );
+Apr 04, 2017 2:27:12 PM transaktionsmanager.TransaktionsManager log
+FINEST: Transaction manager: 2 done
+Apr 04, 2017 2:27:12 PM transaktionsmanager.TransaktionsManager log
+FINEST: Transaction manager: 1 done
+Apr 04, 2017 2:27:12 PM transaktionsmanager.TransaktionsManager log
+FINEST: Transaction manager: 0 done
+Apr 04, 2017 2:29:07 PM transaktionsmanager.TransaktionsManager <init>
+SEVERE: TransaktionsManager started -- 2017.04.04_14:29:07
+Apr 04, 2017 2:29:48 PM transaktionsmanager.TransaktionsManager log
+FINEST: Transaction manager: 2 prepare
+Apr 04, 2017 2:29:48 PM transaktionsmanager.TransaktionsManager log
+FINEST: Transaction manager: 1 prepare
+Apr 04, 2017 2:29:48 PM transaktionsmanager.TransaktionsManager log
+FINEST: Transaction manager: 0 prepare
+Apr 04, 2017 2:29:48 PM transaktionsmanager.TransaktionsManager log
+FINEST: Transaction manager: 4 prepare
+Apr 04, 2017 2:29:48 PM transaktionsmanager.TransaktionsManager log
+FINEST: Transaction manager: 3 prepare
+Apr 04, 2017 2:29:48 PM transaktionsmanager.TransaktionsManager log
+FINEST: Station: 2 yes
+Apr 04, 2017 2:29:48 PM transaktionsmanager.TransaktionsManager log
+FINEST: Station: 3 yes
+Apr 04, 2017 2:29:48 PM transaktionsmanager.TransaktionsManager log
+FINEST: Station: 4 yes
+Apr 04, 2017 2:30:02 PM transaktionsmanager.TransaktionsManager <init>
+SEVERE: TransaktionsManager started -- 2017.04.04_14:30:02
+Apr 04, 2017 2:30:25 PM transaktionsmanager.TransaktionsManager log
+FINEST: Transaction manager: 2 prepare
+Apr 04, 2017 2:30:25 PM transaktionsmanager.TransaktionsManager log
+FINEST: Transaction manager: 0 prepare
+Apr 04, 2017 2:30:25 PM transaktionsmanager.TransaktionsManager log
+FINEST: Transaction manager: 1 prepare
+Apr 04, 2017 2:30:25 PM transaktionsmanager.TransaktionsManager log
+FINEST: Station: 2 yes
+Apr 04, 2017 2:30:25 PM transaktionsmanager.TransaktionsManager log
+FINEST: Station: 1 yes
+Apr 04, 2017 2:30:25 PM transaktionsmanager.TransaktionsManager log
+FINEST: Station: 0 yes
+Apr 04, 2017 2:30:26 PM transaktionsmanager.TransaktionsManager log
+FINEST: Transaction manager: 2 INSERT INTO schueler (ID,NAME,AGE,class) VALUES (7, 'steinwender Jan-Philipp', 19, '5bhit' );
+Apr 04, 2017 2:30:26 PM transaktionsmanager.TransaktionsManager log
+FINEST: Station: 2 ack
+Apr 04, 2017 2:30:41 PM transaktionsmanager.TransaktionsManager <init>
+SEVERE: TransaktionsManager started -- 2017.04.04_14:30:41
+Apr 04, 2017 2:31:09 PM transaktionsmanager.TransaktionsManager log
+FINEST: Transaction manager: 2 prepare
+Apr 04, 2017 2:31:09 PM transaktionsmanager.TransaktionsManager log
+FINEST: Transaction manager: 1 prepare
+Apr 04, 2017 2:31:09 PM transaktionsmanager.TransaktionsManager log
+FINEST: Transaction manager: 0 prepare
+Apr 04, 2017 2:31:10 PM transaktionsmanager.TransaktionsManager log
+FINEST: Station: 1 yes
+Apr 04, 2017 2:31:10 PM transaktionsmanager.TransaktionsManager log
+FINEST: Station: 0 yes
+Apr 04, 2017 2:31:10 PM transaktionsmanager.TransaktionsManager log
+FINEST: Station: 2 yes
+Apr 04, 2017 2:31:11 PM transaktionsmanager.TransaktionsManager log
+FINEST: Transaction manager: 1 INSERT INTO schueler (ID,NAME,AGE,class) VALUES (8, 'steinwender Jan-Philipp', 19, '5bhit' );
+Apr 04, 2017 2:31:11 PM transaktionsmanager.TransaktionsManager log
+FINEST: Transaction manager: 0 INSERT INTO schueler (ID,NAME,AGE,class) VALUES (8, 'steinwender Jan-Philipp', 19, '5bhit' );
+Apr 04, 2017 2:31:11 PM transaktionsmanager.TransaktionsManager log
+FINEST: Transaction manager: 2 INSERT INTO schueler (ID,NAME,AGE,class) VALUES (8, 'steinwender Jan-Philipp', 19, '5bhit' );
+Apr 04, 2017 2:31:11 PM transaktionsmanager.TransaktionsManager log
+FINEST: Station: 0 ack
+Apr 04, 2017 2:31:11 PM transaktionsmanager.TransaktionsManager log
+FINEST: Station: 2 ack
+Apr 04, 2017 2:31:11 PM transaktionsmanager.TransaktionsManager log
+FINEST: Station: 1 ack
+Apr 04, 2017 2:31:12 PM transaktionsmanager.TransaktionsManager log
+FINEST: Transaction manager: 0 done
+Apr 04, 2017 2:31:12 PM transaktionsmanager.TransaktionsManager log
+FINEST: Transaction manager: 2 done
+Apr 04, 2017 2:31:12 PM transaktionsmanager.TransaktionsManager log
+FINEST: Transaction manager: 1 done
