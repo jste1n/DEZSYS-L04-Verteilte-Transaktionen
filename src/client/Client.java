@@ -18,7 +18,7 @@ import java.util.Scanner;
  */
 public class Client {
     private String hostName = "localhost";
-    private int portNumber = 444;
+    private int portNumber = 6900;
 
     /**
      * constructor

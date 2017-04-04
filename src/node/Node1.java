@@ -16,8 +16,10 @@ public class Node1 {
     private Connection con;
     private String hostName = "localhost";
     private int portNumber = 4444;
+    private int dbServer = 1;
 
     public Node1() {
+        System.out.println("db server nr "+ this.dbServer);
         this.con = null;
     }
 
@@ -77,7 +79,7 @@ public class Node1 {
      */
     public String connectToDB() {
         // SQLite connection string
-        String url = "jdbc:sqlite:kocsis_stein.db";
+        String url = "jdbc:sqlite:kocsis_stein"+dbServer+".db";
         String s = "no";
         try {
             con = DriverManager.getConnection(url);
@@ -125,8 +127,8 @@ public class Node1 {
         Statement stmt = null;
         try {
             stmt = con.createStatement();
-//            String sql = "INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY) " +
-//                    "VALUES (1, 'Paul', 32, 'California', 20000.00 );";
+            sql = "INSERT INTO schueler (ID,NAME,AGE,class) " +
+                    "VALUES (1, 'aaa', 19, '5chit' );";
             int rowAffected = stmt.executeUpdate(sql);
             // commit work
             con.commit();
