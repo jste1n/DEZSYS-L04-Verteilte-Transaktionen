@@ -19,7 +19,7 @@ public class CreateTable {
      */
     public void connectToDB() {
         // SQLite connection string
-        String url = "jdbc:sqlite:kocsis_stein_3.db";
+        String url = "jdbc:sqlite:kocsis_stein_1.db";
         try {
             con = DriverManager.getConnection(url);
             // set auto-commit mode to false
@@ -45,7 +45,7 @@ public class CreateTable {
                     " CLASS        CHAR(6)) " ;
             stmt.executeUpdate(sql);
             stmt.close();
-            con.close();
+//            con.close();
             System.out.println("Table created successfully");
         } catch ( Exception e ) {
             System.out.println("Table not created");
@@ -55,9 +55,30 @@ public class CreateTable {
         }
     }
 
+    /**
+     * should be called to execute an insert command
+     */
+    public void doInsert () {
+        Statement stmt = null;
+        try {
+            stmt = con.createStatement();
+            String sql = "INSERT INTO SCHUELER (ID,NAME,AGE,CLASS) " +
+                    "VALUES (1, 'Paul', 32, '5BHIT' );";
+            stmt.executeUpdate(sql);
+            // commit work
+            stmt.close();
+            con.commit();
+            con.close();
+            System.out.println("new entry");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void main(String[] args) {
         CreateTable db1 = new CreateTable();
         db1.connectToDB();
         db1.createTable();
+        db1.doInsert();
     }
 }
