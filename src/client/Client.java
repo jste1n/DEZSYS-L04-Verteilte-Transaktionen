@@ -47,16 +47,19 @@ public class Client {
                 //send to server
                 out.println(input);
 
-                //get from server
+                //get prepare result
                 fromServer = in.readLine();
                 System.out.println(fromServer);
 
-                // receive doCommit or doAbort
+                //get prepare station request
                 fromServer = in.readLine();
                 System.out.println(fromServer);
 
-                if (fromServer.equals("doCommit")) {
-                    // receive ACK or NCK
+                if (!fromServer.contains("doabort")) {
+                    // get commit result
+                    fromServer = in.readLine();
+                    System.out.println(fromServer);
+                    // get commit station request
                     fromServer = in.readLine();
                     System.out.println(fromServer);
                 }

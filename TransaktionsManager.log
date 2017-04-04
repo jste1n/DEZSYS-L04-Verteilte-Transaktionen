@@ -112,3 +112,227 @@ Apr 04, 2017 2:31:12 PM transaktionsmanager.TransaktionsManager log
 FINEST: Transaction manager: 2 done
 Apr 04, 2017 2:31:12 PM transaktionsmanager.TransaktionsManager log
 FINEST: Transaction manager: 1 done
+Apr 04, 2017 3:22:28 PM transaktionsmanager.TransaktionsManager <init>
+SCHWERWIEGEND: TransaktionsManager started -- 2017.04.04_15:22:28
+Apr 04, 2017 3:23:15 PM transaktionsmanager.TransaktionsManager <init>
+FEIN: TransaktionsManager started -- 2017.04.04_15:23:15
+Apr 04, 2017 3:23:40 PM transaktionsmanager.TransaktionsManager <init>
+SCHWERWIEGEND: TransaktionsManager started -- 2017.04.04_15:23:40
+Apr 04, 2017 3:25:12 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Transaction manager: #1 msg:prepare
+Apr 04, 2017 3:25:13 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Station: #1 msg:yes
+Apr 04, 2017 3:46:06 PM transaktionsmanager.TransaktionsManager <init>
+SCHWERWIEGEND: TransaktionsManager started -- 2017.04.04_15:46:06
+Apr 04, 2017 3:46:41 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Transaction manager: #0 msg:prepare
+Apr 04, 2017 3:46:41 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Station: #0 msg:yes
+Apr 04, 2017 3:48:41 PM transaktionsmanager.TransaktionsManager <init>
+SCHWERWIEGEND: TransaktionsManager started -- 2017.04.04_15:48:41
+Apr 04, 2017 3:49:04 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Transaction manager: #1 msg:prepare
+Apr 04, 2017 3:49:04 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Transaction manager: #0 msg:prepare
+Apr 04, 2017 3:49:04 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Station: #1 msg:yes
+Apr 04, 2017 3:49:04 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Station: #0 msg:yes
+Apr 04, 2017 3:49:05 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Transaction manager: #0 msg:INSERT INTO schueler (ID,NAME,AGE,class) VALUES (2, 'Kocsis Patrick', 20, '5BHIT' );
+Apr 04, 2017 3:49:05 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Transaction manager: #1 msg:INSERT INTO schueler (ID,NAME,AGE,class) VALUES (2, 'Kocsis Patrick', 20, '5BHIT' );
+Apr 04, 2017 3:49:05 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Station: #0 msg:ack
+Apr 04, 2017 3:49:05 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Station: #1 msg:ack
+Apr 04, 2017 3:49:06 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Transaction manager: #0 msg:done
+Apr 04, 2017 3:49:06 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Transaction manager: #1 msg:done
+Apr 04, 2017 4:02:56 PM transaktionsmanager.TransaktionsManager <init>
+SCHWERWIEGEND: TransaktionsManager started -- 2017.04.04_16:02:56
+Apr 04, 2017 4:03:43 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Transaction manager: #1 msg:prepare
+Apr 04, 2017 4:03:43 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Transaction manager: #0 msg:prepare
+Apr 04, 2017 4:03:43 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Station: #0 msg:yes
+Apr 04, 2017 4:03:43 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Station: #1 msg:yes
+Apr 04, 2017 4:03:44 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Transaction manager: #0 msg:INSERT INTO schueler (ID,NAME,AGE,class) VALUES (5, 'Kocsis Patrick', 20, '5BHIT' );
+Apr 04, 2017 4:03:44 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Transaction manager: #1 msg:INSERT INTO schueler (ID,NAME,AGE,class) VALUES (5, 'Kocsis Patrick', 20, '5BHIT' );
+Apr 04, 2017 4:03:44 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Station: #1 msg:ack
+Apr 04, 2017 4:03:44 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Station: #0 msg:ack
+Apr 04, 2017 4:03:45 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Transaction manager: #0 msg:done
+Apr 04, 2017 4:03:45 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Transaction manager: #1 msg:done
+Apr 04, 2017 4:06:14 PM transaktionsmanager.TransaktionsManager <init>
+SCHWERWIEGEND: TransaktionsManager started -- 2017.04.04_16:06:14
+Apr 04, 2017 4:06:42 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Transaction manager: #1 msg:prepare
+Apr 04, 2017 4:06:42 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Transaction manager: #0 msg:prepare
+Apr 04, 2017 4:06:42 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Station: #1 msg:yes
+Apr 04, 2017 4:06:42 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Station: #0 msg:yes
+Apr 04, 2017 4:06:43 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Transaction manager: #1 msg:INSERT INTO schueler (ID,NAME,AGE,class) VALUES (8, 'Kocsis Patrick', 20, '5BHIT' );
+Apr 04, 2017 4:06:43 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Station: #1 msg:ack
+Apr 04, 2017 5:04:33 PM transaktionsmanager.TransaktionsManager <init>
+SCHWERWIEGEND: TransaktionsManager started -- 2017.04.04_17:04:33
+Apr 04, 2017 5:30:52 PM transaktionsmanager.TransaktionsManager <init>
+SCHWERWIEGEND: TransaktionsManager started -- 2017.04.04_17:30:52
+Apr 04, 2017 5:32:02 PM transaktionsmanager.TransaktionsManager <init>
+SCHWERWIEGEND: TransaktionsManager started -- 2017.04.04_17:32:02
+Apr 04, 2017 5:32:07 PM transaktionsmanager.TransaktionsManager <init>
+SCHWERWIEGEND: TransaktionsManager started -- 2017.04.04_17:32:07
+Apr 04, 2017 5:32:32 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Station: #0 msg:yes
+Apr 04, 2017 5:32:32 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Station: #1 msg:yes
+Apr 04, 2017 5:32:32 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Station: #0 msg:ack
+Apr 04, 2017 5:32:32 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Station: #1 msg:ack
+Apr 04, 2017 5:33:52 PM transaktionsmanager.TransaktionsManager <init>
+SCHWERWIEGEND: TransaktionsManager started -- 2017.04.04_17:33:52
+Apr 04, 2017 5:33:54 PM transaktionsmanager.TransaktionsManager <init>
+SCHWERWIEGEND: TransaktionsManager started -- 2017.04.04_17:33:54
+Apr 04, 2017 5:34:20 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Station: #1 msg:yes
+Apr 04, 2017 5:34:20 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Station: #0 msg:yes
+Apr 04, 2017 5:48:14 PM transaktionsmanager.TransaktionsManager <init>
+SCHWERWIEGEND: TransaktionsManager started -- 2017.04.04_17:48:14
+Apr 04, 2017 5:48:33 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Station: #1 msg:yes
+Apr 04, 2017 5:48:33 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Station: #0 msg:yes
+Apr 04, 2017 5:48:33 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Station: #1 msg:ack
+Apr 04, 2017 5:48:33 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Station: #0 msg:ack
+Apr 04, 2017 5:51:23 PM transaktionsmanager.TransaktionsManager <init>
+SCHWERWIEGEND: TransaktionsManager started -- 2017.04.04_17:51:23
+Apr 04, 2017 5:51:45 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Station: #0 msg:yes
+Apr 04, 2017 5:51:45 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Station: #1 msg:yes
+Apr 04, 2017 5:51:45 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Station: #0 msg:ack
+Apr 04, 2017 5:51:45 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Station: #1 msg:ack
+Apr 04, 2017 5:53:52 PM transaktionsmanager.TransaktionsManager <init>
+SCHWERWIEGEND: TransaktionsManager started -- 2017.04.04_17:53:52
+Apr 04, 2017 5:54:18 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Station: #1 msg:yes
+Apr 04, 2017 5:54:18 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Station: #0 msg:yes
+Apr 04, 2017 5:54:45 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Station: #0 msg:ack
+Apr 04, 2017 5:55:17 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Station: #1 msg:ack
+Apr 04, 2017 5:57:24 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Station: #0 msg:yes
+Apr 04, 2017 6:01:25 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Station: #1 msg:yes
+Apr 04, 2017 6:01:36 PM transaktionsmanager.TransaktionsManager <init>
+SCHWERWIEGEND: TransaktionsManager started -- 2017.04.04_18:01:36
+Apr 04, 2017 6:02:26 PM transaktionsmanager.TransaktionsManager <init>
+SCHWERWIEGEND: TransaktionsManager started -- 2017.04.04_18:02:26
+Apr 04, 2017 6:02:34 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Station: #1 msg:null
+Apr 04, 2017 6:02:51 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Station: #0 msg:yes
+Apr 04, 2017 6:02:51 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Station: #2 msg:yes
+Apr 04, 2017 6:03:43 PM transaktionsmanager.TransaktionsManager <init>
+SCHWERWIEGEND: TransaktionsManager started -- 2017.04.04_18:03:43
+Apr 04, 2017 6:04:18 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Station: #1 msg:yes
+Apr 04, 2017 6:04:18 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Station: #0 msg:yes
+Apr 04, 2017 6:04:18 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Station: #1 msg:ack
+Apr 04, 2017 6:04:18 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Station: #0 msg:ack
+Apr 04, 2017 6:08:45 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Station: #0 msg:yes
+Apr 04, 2017 6:08:45 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Station: #1 msg:yes
+Apr 04, 2017 6:10:02 PM transaktionsmanager.TransaktionsManager <init>
+SCHWERWIEGEND: TransaktionsManager started -- 2017.04.04_18:10:02
+Apr 04, 2017 6:10:22 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Station: #1 msg:yes
+Apr 04, 2017 6:10:22 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Station: #0 msg:yes
+Apr 04, 2017 6:10:22 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Station: #1 msg:ack
+Apr 04, 2017 6:10:22 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Station: #0 msg:ack
+Apr 04, 2017 6:16:56 PM transaktionsmanager.TransaktionsManager <init>
+SCHWERWIEGEND: TransaktionsManager started -- 2017.04.04_18:16:56
+Apr 04, 2017 6:17:19 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Station: #0 msg:yes
+Apr 04, 2017 6:17:19 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Station: #1 msg:yes
+Apr 04, 2017 6:17:19 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Station: #0 msg:ack
+Apr 04, 2017 6:17:19 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Station: #1 msg:ack
+Apr 04, 2017 6:18:49 PM transaktionsmanager.TransaktionsManager <init>
+SCHWERWIEGEND: TransaktionsManager started -- 2017.04.04_18:18:49
+Apr 04, 2017 6:19:10 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Station: #1 msg:yes
+Apr 04, 2017 6:19:10 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Station: #0 msg:yes
+Apr 04, 2017 6:19:10 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Station: #0 msg:ack
+Apr 04, 2017 6:19:10 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Station: #1 msg:ack
+Apr 04, 2017 6:29:04 PM transaktionsmanager.TransaktionsManager <init>
+SCHWERWIEGEND: TransaktionsManager started -- 2017.04.04_18:29:04
+Apr 04, 2017 6:29:22 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Station: #1 msg:yes
+Apr 04, 2017 6:29:22 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Station: #0 msg:yes
+Apr 04, 2017 6:29:22 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Station: #0 msg:ack
+Apr 04, 2017 6:29:22 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Station: #1 msg:ack
+Apr 04, 2017 6:29:33 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Station: #0 msg:yes
+Apr 04, 2017 6:29:33 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Station: #1 msg:yes
+Apr 04, 2017 6:29:33 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Station: #0 msg:ack
+Apr 04, 2017 6:29:33 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Station: #1 msg:ack
+Apr 04, 2017 6:29:40 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Station: #0 msg:yes
+Apr 04, 2017 6:29:40 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Station: #1 msg:yes
+Apr 04, 2017 6:29:40 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Station: #0 msg:nck
+Apr 04, 2017 6:29:40 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Station: #1 msg:nck
+Apr 04, 2017 6:31:53 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Station: #0 msg:yes
+Apr 04, 2017 6:31:53 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Station: #1 msg:yes
+Apr 04, 2017 6:31:54 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Station: #2 msg:yes
+Apr 04, 2017 6:31:54 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Station: #0 msg:nck
+Apr 04, 2017 6:31:54 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Station: #1 msg:nck
+Apr 04, 2017 6:31:54 PM transaktionsmanager.TransaktionsManager log
+AM FEINSTEN: Station: #2 msg:ack

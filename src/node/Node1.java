@@ -19,7 +19,7 @@ public class Node1 {
     private Connection con;
     private String hostName = "localhost";
     private int portNumber = 4444;
-    private int dbServer = 3;
+    private int dbServer = 1;
     private static final Logger LOGGER = Logger.getLogger(Node1.class.getName());
 
     public Node1() {

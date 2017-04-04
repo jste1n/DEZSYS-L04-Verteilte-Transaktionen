@@ -17,9 +17,11 @@ public class ClientHandler extends Thread{
 
     private PrintWriter clientOut;
     private TransaktionsManager transaktionsManager;
+    private int port;
 
-    public ClientHandler(TransaktionsManager transaktionsManager){
+    public ClientHandler(TransaktionsManager transaktionsManager,int port){
         this.transaktionsManager=transaktionsManager;
+        this.port=port;
     }
 
     public void notifyClient(String message){
@@ -27,8 +29,7 @@ public class ClientHandler extends Thread{
     }
 
     public void run() {
-        int port = 6900;
-        try (ServerSocket serverSocket = new ServerSocket(port)) {
+        try (ServerSocket serverSocket = new ServerSocket(this.port)) {
             Socket clientSocket = serverSocket.accept();
             try (
                     PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
@@ -39,6 +40,7 @@ public class ClientHandler extends Thread{
                 String inputLine;
                 this.clientOut = out;
                 while ((inputLine = in.readLine()) != null) {
+                    System.out.println("Message from Client "+inputLine);
                     this.transaktionsManager.startTransaction(inputLine);
                     if(inputLine.equals("beenden")){
                         break;

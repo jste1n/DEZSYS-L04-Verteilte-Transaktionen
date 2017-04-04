@@ -1,16 +1,11 @@
 package transaktionsmanager;
 
-import node.Node1;
 import protocol.StationProtocol;
 import transaktionsmanager.handler.ClientHandler;
 import transaktionsmanager.handler.StationHandler;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
 import java.net.ServerSocket;
-import java.net.Socket;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.logging.*;
@@ -19,25 +14,25 @@ import java.util.logging.Formatter;
 /**
  * Created by pkocsis on 31.03.17.
  */
-public class TransaktionsManager {
+public class TransaktionsManager{
 
     private int stationCount = 0;
+    private int evaluationCounter=0;
+
     private StationProtocol stationProtocol;
     private ClientHandler clientHandler;
-    private ArrayList<StationHandler> stationHandlers = new ArrayList<>();
-    //private ArrayList<String> stationResponse = new ArrayList<>();
-    private HashMap<Integer, String> stationRequest = new HashMap<>();
-
-    private HashMap<Integer, String> stationResponse = new HashMap<>();
-    private boolean isStationResponseEvaluated = false;
     private static final Logger LOGGER = Logger.getLogger(TransaktionsManager.class.getName());
 
-    public TransaktionsManager() {
-        this.clientHandler= new ClientHandler(this);
-        this.clientHandler.start();
+    private HashMap<Integer,StationHandler> stationHandlers = new HashMap<>();
+    private HashMap<Integer, String> stationRequests = new HashMap<>();
+    private HashMap<Integer, String> stationResponses = new HashMap<>();
 
-        Handler fileHandler = null;
-        Formatter simpleFormatter = null;
+    public TransaktionsManager(int stationPort, int clientPort) {
+        this.clientHandler= new ClientHandler(this,clientPort);
+        this.clientHandler.start();
+        this.listenForStations(stationPort);
+        Handler fileHandler;
+        Formatter simpleFormatter;
         try {
             // Creating FileHandler
             fileHandler = new FileHandler("./TransaktionsManager.log", true);
@@ -48,7 +43,6 @@ public class TransaktionsManager {
             // Setting formatter to the handler
             fileHandler.setFormatter(simpleFormatter);
             // Setting Level to ALL
-//            fileHandler.setLevel(Level.ALL);
             LOGGER.setLevel(Level.ALL);
             LOGGER.severe("TransaktionsManager started -- " + new SimpleDateFormat("yyyy.MM.dd_HH:mm:ss").format(Calendar.getInstance().getTime()));
         } catch (IOException e) {
@@ -58,10 +52,6 @@ public class TransaktionsManager {
             System.err.println("Error is " + e.getMessage());
             e.printStackTrace();
         }
-    }
-
-    public boolean isStationResponseEvaluated() {
-        return isStationResponseEvaluated;
     }
 
     /**
@@ -75,39 +65,37 @@ public class TransaktionsManager {
     }
 
     /**
-     * this Function gets exectued from the StationHandler after the responses got evaluated
-     * @param stationId
-     * @return
-     */
-    public synchronized String getStationRequest(int stationId){
-        String text = this.stationRequest.get(stationId);
-        log("Transaction manager: #"+stationId + " msg:"+text);
-        return text;
-    }
-
-    /**
-     * Add response from the Station (StationHandler)
+     * Adds response from the Station (StationHandler)
      * After all Stations responded the response gets evaluated and a new request gets saved (stationRequest)
      * @param response
      * @param stationHandlerId
      */
     public synchronized void addStationResponse(String response, int stationHandlerId){
-        this.stationResponse.put(stationHandlerId,response);
-        this.isStationResponseEvaluated=false;
+        this.stationResponses.put(stationHandlerId,response);
         log("Station: #"+stationHandlerId + " msg:" +response);
     }
 
-    public synchronized void updateEvaluationStatus(){
-        if(stationCount == stationResponse.size()){
-            this.stationRequest=this.stationProtocol.processInput(this.stationResponse);
-            String clientNotificationText="Station Responses ";
-            for(int i =0; i<this.stationResponse.size();i++){
-                clientNotificationText += ", "+this.stationResponse.get(i);
-            }
-            this.clientHandler.notifyClient(clientNotificationText);
-            this.stationResponse.clear();
-            this.isStationResponseEvaluated = true;
-        }
+    /**
+     * Gets executed after response from station (in StationHandler) is received
+     */
+    public void updateResponseEvaluation(){
+        evaluationCounter++;
+       if(evaluationCounter == stationCount){
+           this.stationRequests=this.stationProtocol.processInput(this.stationResponses);
+           String clientNotificationText="Station Responses";
+           for(Map.Entry<Integer,String> response: this.stationResponses.entrySet()){
+               clientNotificationText += " , "+response.getValue();
+           }
+           this.clientHandler.notifyClient(clientNotificationText);
+           clientNotificationText = "TransactionManager request";
+           for(Map.Entry<Integer,String> stationRequest:this.stationRequests.entrySet()){
+               this.stationHandlers.get(stationRequest.getKey()).sendRequest(stationRequest.getValue());
+               clientNotificationText += " , "+stationRequest.getValue();
+           }
+           this.clientHandler.notifyClient(clientNotificationText);
+           this.stationResponses.clear();
+           this.evaluationCounter=0;
+       }
     }
 
     /**
@@ -116,11 +104,8 @@ public class TransaktionsManager {
      */
     public void startTransaction(String sql){
         System.out.println("Transaction started");
-        for(StationHandler stationHandler:this.stationHandlers){
-            this.stationRequest.put(stationHandler.getStationId(),"prepare");
-            synchronized(stationHandler){
-                stationHandler.notify();
-            }
+        for(Map.Entry<Integer,StationHandler> stationHandler:this.stationHandlers.entrySet()){
+            stationHandler.getValue().sendRequest("prepare");
         }
         this.stationProtocol = new StationProtocol(sql);
     }
@@ -135,8 +120,8 @@ public class TransaktionsManager {
             while (listening) {
                 System.out.println("listening for stations");
                 StationHandler tmp_station = new StationHandler(serverSocket.accept(),this,this.stationCount);
-                this.stationHandlers.add(this.stationCount,tmp_station);
-                tmp_station.start();
+                this.stationHandlers.put(this.stationCount,tmp_station);
+                new Thread(tmp_station).start();
                 this.stationCount++;
             }
         } catch (IOException e) {
@@ -146,11 +131,11 @@ public class TransaktionsManager {
     }
 
     public static void main(String[] args) throws IOException {
-        if (args.length != 1) {
-            System.err.println("Usage: java TransactionManager <StationListenerPort number>");
+        if (args.length != 2) {
+            System.err.println("Usage: java TransactionManager <StationPortNumber> <ClientPortNumber>");
             System.exit(1);
         }
-        TransaktionsManager transaktionsManager = new TransaktionsManager();
-        transaktionsManager.listenForStations(Integer.parseInt(args[0]));
+        new TransaktionsManager(Integer.parseInt(args[0]),Integer.parseInt(args[1]));
     }
+
 }

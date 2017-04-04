@@ -2,11 +2,12 @@ package protocol;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by pkocsis on 31.03.17.
  */
-public class StationProtocol {
+public class StationProtocol{
 
     private static final int PREPARE = 0;
     private static final int COMMIT = 1;
@@ -20,26 +21,23 @@ public class StationProtocol {
     }
 
     public HashMap<Integer,String> processInput(HashMap<Integer,String> responses) {
-
         if(state == PREPARE){
             HashMap<Integer,String> requests = new HashMap<>();
             boolean failed = false;
-            for(int i = 0;i<responses.size();i++){
-                String response = responses.get(i);
-                response = response.toLowerCase();
-                if(response.equals("no")){
+            for(Map.Entry<Integer,String> response: responses.entrySet()){
+                if(response.getValue().equals("no")){
                     failed = true;
                 }
             }
             if(!failed){
-                for(int i = 0;i<responses.size();i++){
-                    requests.put(i,this.sqlCommand);
+                for(Map.Entry<Integer,String> response: responses.entrySet()){
+                    requests.put(response.getKey(),this.sqlCommand);
                 }
                 this.state=COMMIT;
                 return requests;
             }else {
-                for(int i = 0;i<responses.size();i++){
-                    requests.put(i,"doabort");
+                for(Map.Entry<Integer,String> response: responses.entrySet()){
+                    requests.put(response.getKey(),"doabort");
                 }
                 return requests;
             }
@@ -47,27 +45,22 @@ public class StationProtocol {
         if(this.state == COMMIT){
             HashMap<Integer,String> requests = new HashMap<>();
             boolean failed = false;
-            for(int i = 0;i<responses.size();i++){
-                String response = responses.get(i);
-                response = response.toLowerCase();
-                if(response.equals("nck")){
+            for(Map.Entry<Integer,String> response: responses.entrySet()){
+                if(response.getValue().equals("nck")){
                     failed = true;
                 }
             }
             if(!failed){
-                for(int i = 0;i<responses.size();i++){
-                    requests.put(i,"done");
+                for(Map.Entry<Integer,String> response: responses.entrySet()){
+                    requests.put(response.getKey(),"done");
                 }
-                this.state=COMMIT;
                 return requests;
             }else {
-                for(int i = 0;i<responses.size();i++){
-                    if(responses.get(i).equals("ack")){
-                        requests.put(i,"rollback");
+                for(Map.Entry<Integer,String> response: responses.entrySet()){
+                    if(response.getValue().equals("ack")){
+                        requests.put(response.getKey(),"rollback");
                     } else {
-                        if(responses.get(i).equals("nck")){
-                            requests.put(i,"done");
-                        }
+                        requests.put(response.getKey(),"done");
                     }
                 }
                 return requests;
