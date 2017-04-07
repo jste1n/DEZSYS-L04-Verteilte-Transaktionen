@@ -1,5 +1,7 @@
 package client;
 
+import node.Node1;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -24,6 +26,12 @@ public class Client {
      * constructor
      */
     public Client() {
+        new Client(hostName, portNumber);
+    }
+
+    public Client(String arg, int i) {
+        hostName=arg;
+        portNumber=i;
         System.out.println("examples: \n" +
                 "INSERT INTO schueler (ID,NAME,AGE,class) VALUES (1, 'Kocsis Patrick', 20, '5BHIT' );\n" +
                 "INSERT INTO fakenews (ID,NAME) VALUES (1, 'Kocsis Patrick' );");
@@ -84,7 +92,16 @@ public class Client {
      * @param args hostname(ip) and port number to share
      */
     public static void main(String[] args) {
-        Client c1 = new Client();
+        Client c1 = null;
+        if (args.length == 0) {
+            c1 = new Client();
+        } else if (args.length == 2) {
+            c1 = new Client(args[0], Integer.parseInt(args[1]));
+        } else {
+            System.out.println("wrong parameters");
+            System.exit(0);
+        }
+
         c1.connection();
     }
 }

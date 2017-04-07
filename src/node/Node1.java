@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.net.InterfaceAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
 import java.sql.*;
@@ -23,7 +24,15 @@ public class Node1 {
     private static final Logger LOGGER = Logger.getLogger(Node1.class.getName());
 
     public Node1() {
+        new Node1(hostName, portNumber);
+    }
+
+    public Node1(String arg, int s) {
         this.con = null;
+        hostName=arg;
+        portNumber=s;
+//        System.out.println("host:"+hostName+"|port:"+portNumber+"|");
+
         //System.out.println("work dir " + System.getProperty("user.dir"));
         Handler fileHandler = null;
         Formatter simpleFormatter = null;
@@ -38,7 +47,6 @@ public class Node1 {
             // Setting formatter to the handler
             fileHandler.setFormatter(simpleFormatter);
             // Setting Level to ALL
-//            fileHandler.setLevel(Level.ALL);
             LOGGER.setLevel(Level.ALL);
             LOGGER.severe("Node "+dbServer+" started -- " + new SimpleDateFormat("yyyy.MM.dd_HH:mm:ss").format(Calendar.getInstance().getTime()));
         } catch (IOException e) {
@@ -51,7 +59,15 @@ public class Node1 {
     }
 
     public static void main(String args[]) {
-        Node1 n1 = new Node1();
+        Node1 n1 = null;
+        if (args.length == 0) {
+            n1 = new Node1();
+        } else if (args.length == 2) {
+            n1 = new Node1(args[0], Integer.parseInt(args[1]));
+        } else {
+            System.out.println("wrong parameters");
+            System.exit(0);
+        }
         n1.connectToManager();
     }
 
@@ -187,7 +203,7 @@ public class Node1 {
      * @return ack or nck
      */
     public String doInsert (String sql) {
-        String result = null;
+        String result;
         Statement stmt = null;
         try {
             stmt = con.createStatement();
