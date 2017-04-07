@@ -81,6 +81,12 @@ public class TransaktionsManager{
     public void updateResponseEvaluation(){
         evaluationCounter++;
        if(evaluationCounter == stationCount){
+           for(Map.Entry<Integer,String> response:this.stationResponses.entrySet()){
+               if(response.getValue() == null){
+                   this.stationHandlers.remove(response.getKey());
+                   this.stationResponses.remove(response.getKey());
+               }
+           }
            this.stationRequests=this.stationProtocol.processInput(this.stationResponses);
            String clientNotificationText="Station Responses";
            for(Map.Entry<Integer,String> response: this.stationResponses.entrySet()){

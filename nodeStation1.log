@@ -528,3 +528,17 @@ Apr 04, 2017 7:43:54 PM node.Node1 log
 FINEST: Station: ack
 Apr 04, 2017 7:43:54 PM node.Node1 log
 FINEST: Transaction manager: rollback
+Apr 07, 2017 9:38:15 AM node.Node1 <init>
+SCHWERWIEGEND: Node 1 started -- 2017.04.07_09:38:15
+Apr 07, 2017 9:38:39 AM node.Node1 log
+AM FEINSTEN: Transaction manager: null
+Apr 07, 2017 10:23:21 AM node.Node1 <init>
+SCHWERWIEGEND: Node 1 started -- 2017.04.07_10:23:21
+Apr 07, 2017 10:24:17 AM node.Node1 log
+AM FEINSTEN: Transaction manager: null
+Apr 07, 2017 10:25:23 AM node.Node1 <init>
+SCHWERWIEGEND: Node 1 started -- 2017.04.07_10:25:23
+Apr 07, 2017 10:28:16 AM node.Node1 <init>
+SCHWERWIEGEND: Node 1 started -- 2017.04.07_10:28:16
+Apr 07, 2017 10:30:27 AM node.Node1 log
+AM FEINSTEN: Transaction manager: null
