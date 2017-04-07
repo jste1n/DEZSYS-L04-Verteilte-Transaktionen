@@ -60,18 +60,34 @@ public class Client {
 
                 //get prepare result
                 fromServer = in.readLine();
+                if(fromServer == null){
+                    System.err.println("TransaktionsManager unavailable");
+                    System.exit(1);
+                }
                 System.out.println(fromServer);
 
                 //get prepare station request
                 fromServer = in.readLine();
+                if(fromServer == null){
+                    System.err.println("TransaktionsManager unavailable");
+                    System.exit(1);
+                }
                 System.out.println(fromServer);
 
                 if (!fromServer.contains("doabort")) {
                     // get commit result
                     fromServer = in.readLine();
+                    if(fromServer == null){
+                        System.err.println("TransaktionsManager unavailable");
+                        System.exit(1);
+                    }
                     System.out.println(fromServer);
                     // get commit station request
                     fromServer = in.readLine();
+                    if(fromServer == null){
+                        System.err.println("TransaktionsManager unavailable");
+                        System.exit(1);
+                    }
                     System.out.println(fromServer);
                 }
             }

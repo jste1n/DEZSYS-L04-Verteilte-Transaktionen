@@ -83,24 +83,28 @@ public class TransaktionsManager{
        if(evaluationCounter == stationCount){
            for(Map.Entry<Integer,String> response:this.stationResponses.entrySet()){
                if(response.getValue() == null){
+                   this.stationHandlers.get(response.getKey()).stop();
                    this.stationHandlers.remove(response.getKey());
                    this.stationResponses.remove(response.getKey());
+                   this.stationCount -= 1;
                }
            }
-           this.stationRequests=this.stationProtocol.processInput(this.stationResponses);
-           String clientNotificationText="Station Responses";
-           for(Map.Entry<Integer,String> response: this.stationResponses.entrySet()){
-               clientNotificationText += " , "+response.getValue();
+           if(stationResponses.size() != 0){
+               this.stationRequests=this.stationProtocol.processInput(this.stationResponses);
+               String clientNotificationText="Station Responses";
+               for(Map.Entry<Integer,String> response: this.stationResponses.entrySet()){
+                   clientNotificationText += " , "+response.getValue();
+               }
+               this.clientHandler.notifyClient(clientNotificationText);
+               clientNotificationText = "TransactionManager request";
+               for(Map.Entry<Integer,String> stationRequest:this.stationRequests.entrySet()){
+                   this.stationHandlers.get(stationRequest.getKey()).sendRequest(stationRequest.getValue());
+                   log("Transaction manager: #"+stationRequest.getKey() + " request:"+ stationRequest.getValue());
+                   clientNotificationText += " , "+stationRequest.getValue();
+               }
+               this.clientHandler.notifyClient(clientNotificationText);
+               this.stationResponses.clear();
            }
-           this.clientHandler.notifyClient(clientNotificationText);
-           clientNotificationText = "TransactionManager request";
-           for(Map.Entry<Integer,String> stationRequest:this.stationRequests.entrySet()){
-               this.stationHandlers.get(stationRequest.getKey()).sendRequest(stationRequest.getValue());
-               log("Transaction manager: #"+stationRequest.getKey() + " request:"+ stationRequest.getValue());
-               clientNotificationText += " , "+stationRequest.getValue();
-           }
-           this.clientHandler.notifyClient(clientNotificationText);
-           this.stationResponses.clear();
            this.evaluationCounter=0;
        }
     }

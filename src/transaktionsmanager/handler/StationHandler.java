@@ -19,7 +19,7 @@ public class StationHandler implements Runnable{
     private TransaktionsManager transaktionsManager;
     private int id;
     private PrintWriter out;
-
+    private boolean run=true;
     public StationHandler(Socket stationSocket, TransaktionsManager transaktionsManager, int id) {
         this.stationSocket = stationSocket;
         this.transaktionsManager = transaktionsManager;
@@ -38,12 +38,21 @@ public class StationHandler implements Runnable{
         ) {
             String inputLine;
             this.out=out;
-            while(true){
+            while(run){
                 inputLine = in.readLine();
                 System.out.println("station response: "+inputLine);
                 this.transaktionsManager.addStationResponse(inputLine, id);
                 this.transaktionsManager.updateResponseEvaluation();
             }
+        } catch(IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void stop(){
+        try {
+            this.run=false;
+            this.stationSocket.close();
         } catch(IOException e) {
             e.printStackTrace();
         }

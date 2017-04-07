@@ -20,7 +20,7 @@ public class Node1 {
     private Connection con;
     private String hostName = "localhost";
     private int portNumber = 4444;
-    private int dbServer = 1;
+    private int dbServer = 2;
     private static final Logger LOGGER = Logger.getLogger(Node1.class.getName());
 
     public Node1() {
@@ -83,9 +83,9 @@ public class Node1 {
             //send to transaction manager
             String toTM = null;
             Boolean sendMsg = true;
-            while (true) {
+            while ((fromTM=in.readLine()) != null) {
                 //get from server
-                fromTM = in.readLine();
+                //fromTM = in.readLine();
                 System.out.println("request from TM: "+fromTM);
                 log("Transaction manager: "+fromTM);
                 fromTM = fromTM.toLowerCase();

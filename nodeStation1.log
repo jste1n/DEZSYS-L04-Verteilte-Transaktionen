@@ -542,3 +542,25 @@ Apr 07, 2017 10:28:16 AM node.Node1 <init>
 SCHWERWIEGEND: Node 1 started -- 2017.04.07_10:28:16
 Apr 07, 2017 10:30:27 AM node.Node1 log
 AM FEINSTEN: Transaction manager: null
+Apr 07, 2017 10:36:52 AM node.Node1 <init>
+SCHWERWIEGEND: Node 1 started -- 2017.04.07_10:36:52
+Apr 07, 2017 10:40:14 AM node.Node1 <init>
+SCHWERWIEGEND: Node 1 started -- 2017.04.07_10:40:14
+Apr 07, 2017 10:41:17 AM node.Node1 log
+AM FEINSTEN: Transaction manager: null
+Apr 07, 2017 10:46:18 AM node.Node1 <init>
+SCHWERWIEGEND: Node 1 started -- 2017.04.07_10:46:18
+Apr 07, 2017 10:47:57 AM node.Node1 <init>
+SCHWERWIEGEND: Node 1 started -- 2017.04.07_10:47:57
+Apr 07, 2017 10:48:14 AM node.Node1 log
+AM FEINSTEN: Transaction manager: prepare
+Apr 07, 2017 10:48:15 AM node.Node1 log
+AM FEINSTEN: Station: yes
+Apr 07, 2017 10:48:15 AM node.Node1 log
+AM FEINSTEN: Transaction manager: INSERT INTO fakenews (ID,NAME) VALUES (1, 'Kocsis Patrick' );
+Apr 07, 2017 10:48:15 AM node.Node1 log
+AM FEINSTEN: Station: nck
+Apr 07, 2017 10:48:15 AM node.Node1 log
+AM FEINSTEN: Transaction manager: done
+Apr 07, 2017 10:51:27 AM node.Node1 <init>
+SCHWERWIEGEND: Node 1 started -- 2017.04.07_10:51:27

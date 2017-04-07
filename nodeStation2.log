@@ -561,3 +561,59 @@ Apr 07, 2017 10:28:04 AM node.Node1 log
 AM FEINSTEN: Transaction manager: null
 Apr 07, 2017 10:28:07 AM node.Node1 <init>
 SCHWERWIEGEND: Node 2 started -- 2017.04.07_10:28:07
+Apr 07, 2017 10:36:59 AM node.Node1 <init>
+SCHWERWIEGEND: Node 2 started -- 2017.04.07_10:36:59
+Apr 07, 2017 10:38:24 AM node.Node1 log
+AM FEINSTEN: Transaction manager: null
+Apr 07, 2017 10:40:02 AM node.Node1 <init>
+SCHWERWIEGEND: Node 2 started -- 2017.04.07_10:40:02
+Apr 07, 2017 10:46:26 AM node.Node1 <init>
+SCHWERWIEGEND: Node 2 started -- 2017.04.07_10:46:26
+Apr 07, 2017 10:46:40 AM node.Node1 log
+AM FEINSTEN: Transaction manager: prepare
+Apr 07, 2017 10:46:40 AM node.Node1 log
+AM FEINSTEN: Station: yes
+Apr 07, 2017 10:47:42 AM node.Node1 log
+AM FEINSTEN: Transaction manager: null
+Apr 07, 2017 10:47:51 AM node.Node1 <init>
+SCHWERWIEGEND: Node 2 started -- 2017.04.07_10:47:51
+Apr 07, 2017 10:51:34 AM node.Node1 <init>
+SCHWERWIEGEND: Node 2 started -- 2017.04.07_10:51:34
+Apr 07, 2017 10:51:54 AM node.Node1 <init>
+SCHWERWIEGEND: Node 2 started -- 2017.04.07_10:51:54
+Apr 07, 2017 10:52:39 AM node.Node1 <init>
+SCHWERWIEGEND: Node 2 started -- 2017.04.07_10:52:39
+Apr 07, 2017 10:53:27 AM node.Node1 log
+AM FEINSTEN: Transaction manager: prepare
+Apr 07, 2017 10:53:27 AM node.Node1 log
+AM FEINSTEN: Station: yes
+Apr 07, 2017 10:53:27 AM node.Node1 log
+AM FEINSTEN: Transaction manager: INSERT INTO fakenews (ID,NAME) VALUES (1, 'Kocsis Patrick' );
+Apr 07, 2017 10:53:27 AM node.Node1 log
+AM FEINSTEN: Station: ack
+Apr 07, 2017 10:53:27 AM node.Node1 log
+AM FEINSTEN: Transaction manager: done
+Apr 07, 2017 10:54:53 AM node.Node1 <init>
+SCHWERWIEGEND: Node 2 started -- 2017.04.07_10:54:53
+Apr 07, 2017 10:55:01 AM node.Node1 log
+AM FEINSTEN: Transaction manager: prepare
+Apr 07, 2017 10:55:01 AM node.Node1 log
+AM FEINSTEN: Station: yes
+Apr 07, 2017 10:55:01 AM node.Node1 log
+AM FEINSTEN: Transaction manager: INSERT INTO fakenews (ID,NAME) VALUES (1, 'Kocsis Patrick;
+Apr 07, 2017 10:55:01 AM node.Node1 log
+AM FEINSTEN: Station: nck
+Apr 07, 2017 10:55:01 AM node.Node1 log
+AM FEINSTEN: Transaction manager: done
+Apr 07, 2017 10:59:51 AM node.Node1 <init>
+SCHWERWIEGEND: Node 2 started -- 2017.04.07_10:59:51
+Apr 07, 2017 10:59:58 AM node.Node1 log
+AM FEINSTEN: Transaction manager: prepare
+Apr 07, 2017 10:59:58 AM node.Node1 log
+AM FEINSTEN: Station: yes
+Apr 07, 2017 10:59:58 AM node.Node1 log
+AM FEINSTEN: Transaction manager: INSERT INTO fakenews (ID,NAME) VALUES (1, 'Kocsis Patrick' );
+Apr 07, 2017 10:59:58 AM node.Node1 log
+AM FEINSTEN: Station: nck
+Apr 07, 2017 10:59:58 AM node.Node1 log
+AM FEINSTEN: Transaction manager: done
